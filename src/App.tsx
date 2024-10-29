@@ -1,7 +1,11 @@
-import "./App.css";
+import './App.css';
+import Navbar from './Componets/Navbar/Navbar.tsx';
 
 function App() {
-  return <></>;
+
+  return <>
+    <Navbar />
+  </>;
 }
 
 export default App;
