@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "format:check": "npx prettier . --check",
     "format": "npx prettier . --write"
-
   },
   "dependencies": {
     "prettier": "^3.3.3",
