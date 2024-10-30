@@ -26,8 +26,8 @@ const Navbar = () => {
   }, [fetchData]);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-primary">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg bg-primary mb-5">
+      <div className="container">
         <div className="collapse navbar-collapse d-flex justify-content-center">
           <div className="navbar-nav fs-3 gap-5">
             {pages.map((page) => (
@@ -40,6 +40,7 @@ const Navbar = () => {
               </NavLink>
             ))}
           </div>
+          <a className="fs-3 nav-link text-white link-info ms-auto pointer-event">Admin</a>
         </div>
       </div>
     </nav>
