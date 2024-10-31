@@ -29,8 +29,10 @@ const Content = () => {
   }, [params.pageName]);
 
   useEffect(() => {
-    void fetchPageData();
-  }, [fetchPageData]);
+    if (location.pathname === '/') {
+      void fetchPageData();
+    }
+  }, [fetchPageData, location]);
 
 
   return (

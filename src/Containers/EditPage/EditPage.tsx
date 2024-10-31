@@ -44,6 +44,7 @@ const EditPage: React.FC = () => {
     if (selectedPage && pageData) {
       try {
         setLoading(true);
+        alert('Data saved successfully!');
         await axiosAPI.put(`pages/${selectedPage}.json`, pageData);
         navigate(`/pages/${selectedPage}`);
       } catch (e) {
