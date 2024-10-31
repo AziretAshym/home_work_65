@@ -40,7 +40,7 @@ const Navbar = () => {
               </NavLink>
             ))}
           </div>
-          <a className="fs-3 nav-link text-white link-info ms-auto pointer-event">Admin</a>
+          <NavLink to="/admin/edit" className="fs-3 nav-link text-white link-info ms-auto pointer-event">Admin</NavLink>
         </div>
       </div>
     </nav>
