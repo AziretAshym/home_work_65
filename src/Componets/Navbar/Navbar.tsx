@@ -1,19 +1,21 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import axiosAPI from '../../AxiosAPI.ts';
-import { IPage, IPageAPI } from '../../types';
-import { NavLink } from 'react-router-dom';
+import React, { useCallback, useEffect, useState } from "react";
+import axiosAPI from "../../AxiosAPI.ts";
+import { IPage, IPageAPI } from "../../types";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [pages, setPages] = useState<IPage[]>([]);
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axiosAPI<IPageAPI>('pages.json');
+      const response = await axiosAPI<IPageAPI>("pages.json");
       if (response.data) {
-        const dataFromAPI: IPage[] = Object.keys(response.data).map((pageKey) => ({
-          id: pageKey,
-          ...response.data[pageKey],
-        }));
+        const dataFromAPI: IPage[] = Object.keys(response.data).map(
+          (pageKey) => ({
+            id: pageKey,
+            ...response.data[pageKey],
+          }),
+        );
         setPages(dataFromAPI);
       }
     } catch (e) {
@@ -40,7 +42,12 @@ const Navbar = () => {
               </NavLink>
             ))}
           </div>
-          <NavLink to="/admin/edit" className="fs-3 nav-link text-white link-info ms-auto pointer-event">Admin</NavLink>
+          <NavLink
+            to="/admin/edit"
+            className="fs-3 nav-link text-white link-info ms-auto pointer-event"
+          >
+            Admin
+          </NavLink>
         </div>
       </div>
     </nav>

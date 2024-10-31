@@ -1,16 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axiosAPI from '../../AxiosAPI.ts';
-import { IPage } from '../../types';
-import Page from '../../Componets/Page/Page.tsx';
-import Loader from '../../Componets/Ui/Loader/Loader.tsx';
-
+import React, { useCallback, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axiosAPI from "../../AxiosAPI.ts";
+import { IPage } from "../../types";
+import Page from "../../Componets/Page/Page.tsx";
+import Loader from "../../Componets/Ui/Loader/Loader.tsx";
 
 const Content = () => {
   const params = useParams<{ pageName: string }>();
   const [page, setPage] = useState<IPage | null>(null);
-  const [loading, setLoading] = useState<boolean>(false)
-
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchPageData = useCallback(async () => {
     try {
@@ -29,24 +27,28 @@ const Content = () => {
   }, [params.pageName]);
 
   useEffect(() => {
-    if (location.pathname === '/') {
-      void fetchPageData();
-    }
-  }, [fetchPageData, location]);
-
+    void fetchPageData();
+  }, [fetchPageData]);
 
   return (
     <>
-      {loading ? <Loader /> : (
+      {loading ? (
+        <Loader />
+      ) : (
         <>
-          {page ? <Page title={page.title} subtitle={page.subtitle} content={page.content} /> : (
+          {page ? (
+            <Page
+              title={page.title}
+              subtitle={page.subtitle}
+              content={page.content}
+            />
+          ) : (
             <Page title="Page Not Found" subtitle="" content="" />
           )}
         </>
       )}
     </>
   );
-
 };
 
 export default Content;
